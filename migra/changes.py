@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from collections import OrderedDict as od
 from functools import partial
 
-import schemainspect
+import schemainspect2
 
 from .statements import Statements
 from .util import differences
@@ -627,7 +627,7 @@ class Changes(object):
         b = self.i_target.indexes.items()
 
         def is_mv_index(i, ii):
-            sig = schemainspect.misc.quoted_identifier(i.table_name, i.schema)
+            sig = schemainspect2.misc.quoted_identifier(i.table_name, i.schema)
             return sig in ii.materialized_views
 
         a_od = od((k, v) for k, v in a if is_mv_index(v, self.i_from))
@@ -640,7 +640,7 @@ class Changes(object):
         b = self.i_target.indexes.items()
 
         def is_mv_index(i, ii):
-            sig = schemainspect.misc.quoted_identifier(i.table_name, i.schema)
+            sig = schemainspect2.misc.quoted_identifier(i.table_name, i.schema)
             return sig in ii.materialized_views
 
         a_od = od((k, v) for k, v in a if not is_mv_index(v, self.i_from))

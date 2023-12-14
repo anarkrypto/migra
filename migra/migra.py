@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from schemainspect import DBInspector, get_inspector
+from schemainspect2 import DBInspector, get_inspector
 
 from .changes import Changes
 from .statements import Statements
